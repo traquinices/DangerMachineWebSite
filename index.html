@@ -220,7 +220,7 @@
     }
     .bio-image-wrap img {
       width: 100%;
-      height: 500px;
+      height: 550px;
       object-fit: cover;
       filter: grayscale(0.2) contrast(1.1);
       display: block;
@@ -569,6 +569,7 @@
       font-size: 0.8rem;
     }
 
+    /* CARROSSEL COM SLIDE */
     #live {
       background: var(--black);
       text-align: center;
@@ -589,13 +590,29 @@
       align-items: center;
       justify-content: center;
     }
-    .carousel-image {
+    .carousel-track-wrapper {
+      overflow: hidden;
       width: 100%;
-      height: auto;
-      max-height: 70vh;
+      border-radius: 12px;
+    }
+    .carousel-track {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+      will-change: transform;
+    }
+    .carousel-slide {
+      flex: 0 0 100%;
+      aspect-ratio: 16 / 9;
+      background: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .carousel-slide img {
+      width: 100%;
+      height: 100%;
       object-fit: contain;
       display: block;
-      transition: opacity 0.3s ease;
     }
     .carousel-btn {
       position: absolute;
@@ -750,6 +767,7 @@
       .nav-links { gap: 1rem; }
       .carousel-btn { font-size: 1.5rem; padding: 0.3rem 0.7rem; }
       .tour-grid { grid-template-columns: 1fr; }
+      .carousel-slide { aspect-ratio: 4 / 3; }
     }
     @media (max-width: 580px) {
       .disc-row { gap: 1rem; }
@@ -759,6 +777,7 @@
       .logo-mini { font-size: 0.9rem; }
       .carousel-btn { font-size: 1.2rem; padding: 0.2rem 0.5rem; }
       .tour-date { font-size: 1rem; }
+      .carousel-slide { aspect-ratio: 4 / 3; }
     }
 
     .fade-up {
@@ -827,22 +846,10 @@
       <img src="media/Danger Machine (2025 - Present Line-Up).jpeg" alt="Danger Machine Lineup 2025" />
     </div>
     <div class="members-grid fade-up">
-      <div class="member-card">
-        <h3>Danger Machine</h3>
-        <p>Demolisher Bass & Unholy Sermons</p>
-      </div>
-      <div class="member-card">
-        <h3>Phantom Lord</h3>
-        <p>Mayhemic Guitar</p>
-      </div>
-      <div class="member-card">
-        <h3>Oni Kurogo</h3>
-        <p>Steelcutting Guitar</p>
-      </div>
-      <div class="member-card">
-        <h3>War "Rex" Rhino</h3>
-        <p>MG 42 Drums</p>
-      </div>
+      <div class="member-card"><h3>Danger Machine</h3><p>Demolisher Bass & Unholy Sermons</p></div>
+      <div class="member-card"><h3>Phantom Lord</h3><p>Mayhemic Guitar</p></div>
+      <div class="member-card"><h3>Oni Kurogo</h3><p>Steelcutting Guitar</p></div>
+      <div class="member-card"><h3>War "Rex" Rhino</h3><p>MG 42 Drums</p></div>
     </div>
   </div>
 </section>
@@ -860,15 +867,8 @@
 <div id="modal" class="modal">
   <div class="modal-content">
     <span class="modal-close">&times;</span>
-    <div class="modal-left">
-      <img id="modalImage" alt="capa">
-    </div>
-    <div class="modal-right">
-      <h2 id="modalTitle"></h2>
-      <div id="modalReleaseDate" class="release-date"></div>
-      <h3>TRACKLIST</h3>
-      <ul id="modalTracklist" class="tracklist"></ul>
-    </div>
+    <div class="modal-left"><img id="modalImage" alt="capa"></div>
+    <div class="modal-right"><h2 id="modalTitle"></h2><div id="modalReleaseDate" class="release-date"></div><h3>TRACKLIST</h3><ul id="modalTracklist" class="tracklist"></ul></div>
   </div>
 </div>
 
@@ -881,14 +881,16 @@
   </div>
 </section>
 
-<!-- CARROSSEL LIVE -->
+<!-- CARROSSEL LIVE (com slide) -->
 <section id="live">
   <p class="section-sub fade-up">CERIMÓNIAS AO VIVO</p>
   <h2 class="section-title fade-up">LIVE PHOTOS</h2>
   <div class="live-carousel fade-up">
     <div class="carousel-container">
       <button class="carousel-btn btn-prev" aria-label="Anterior">❮</button>
-      <img class="carousel-image" id="liveImage" alt="Danger Machine live" />
+      <div class="carousel-track-wrapper">
+        <div class="carousel-track" id="carouselTrack"></div>
+      </div>
       <button class="carousel-btn btn-next" aria-label="Seguinte">❯</button>
     </div>
     <div class="carousel-indicators" id="indicators"></div>
@@ -938,50 +940,28 @@
 </footer>
 
 <script>
-  // DADOS DISCOGRAFIA
+  // DISCOGRAFIA
   const discos = [
     { title: "Metallick Mercenaries", year: "2022 (K7) / 2024 CD", type: "DEMO", img: "media/metallick mercenaries.jpg", releaseDate: "Lançado a 15 de Setembro, 2023", tracks: [{ name: "Beware of the Night (Evil Vows)", duration: "04:03" }, { name: "Medusa's Eyes", duration: "04:17" }, { name: "Wake Up in Leather", duration: "03:58" }, { name: "Alabarda no Brilho da Noite", duration: "05:11" }, { name: "Lucefecit", duration: "02:37" }] },
     { title: "Facadas, Sangue & Rock'n'Roll", year: "2024", type: "LIVE/STUDIO EP", img: "media/facadas, sangue, rocknroll.jpg", releaseDate: "Lançado a 31 de Outubro, 2024", tracks: [{ name: "Wake Up in Leather", duration: "04:07" }, { name: "Beware of the Night", duration: "04:27" }, { name: "Smile on a Killer's Face", duration: "03:55" }] },
     { title: "The Witchburner (Early Version)", year: "2025", type: "SINGLE", img: "media/witchburner.png", releaseDate: "Lançado a 11 de Abril, 2025", tracks: [{ name: "The Witchburner", duration: "04:41" }] }
   ];
-
-  function buildDiscCard(item, idx) {
-    return `<div class="disc-card" data-index="${idx}"><div class="disc-cover"><img src="${item.img}" alt="${item.title}" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Crect width=%22100%22 height=%22100%22 fill=%22%23111%22/%3E%3Ctext x=%2250%22 y=%2250%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23888%22%3E⚔️%3C/text%3E%3C/svg%3E';"></div><div class="disc-info"><div class="disc-title">${item.title}</div><div class="disc-meta">${item.year}</div><span class="disc-type">${item.type}</span></div></div>`;
-  }
+  function buildDiscCard(item, idx) { return `<div class="disc-card" data-index="${idx}"><div class="disc-cover"><img src="${item.img}" alt="${item.title}" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Crect width=%22100%22 height=%22100%22 fill=%22%23111%22/%3E%3Ctext x=%2250%22 y=%2250%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23888%22%3E⚔️%3C/text%3E%3C/svg%3E';"></div><div class="disc-info"><div class="disc-title">${item.title}</div><div class="disc-meta">${item.year}</div><span class="disc-type">${item.type}</span></div></div>`; }
   document.getElementById('disc-row').innerHTML = discos.map((d,i)=>buildDiscCard(d,i)).join('');
-
   const modal = document.getElementById('modal');
   const modalImg = document.getElementById('modalImage');
   const modalTitle = document.getElementById('modalTitle');
   const modalRelease = document.getElementById('modalReleaseDate');
   const modalTracklist = document.getElementById('modalTracklist');
-
-  function openModal(idx) {
-    const d = discos[idx];
-    modalImg.src = d.img;
-    modalTitle.innerText = d.title;
-    modalRelease.innerText = d.releaseDate;
-    modalTracklist.innerHTML = d.tracks.map((t,i)=>`<li><span class="track-number">${(i+1).toString().padStart(2,'0')}</span><span class="track-name">${t.name}</span><span class="track-duration">${t.duration}</span></li>`).join('');
-    modal.style.display = 'flex';
-  }
+  function openModal(idx) { const d = discos[idx]; modalImg.src = d.img; modalTitle.innerText = d.title; modalRelease.innerText = d.releaseDate; modalTracklist.innerHTML = d.tracks.map((t,i)=>`<li><span class="track-number">${(i+1).toString().padStart(2,'0')}</span><span class="track-name">${t.name}</span><span class="track-duration">${t.duration}</span></li>`).join(''); modal.style.display = 'flex'; }
   document.querySelectorAll('.disc-card').forEach(card => card.addEventListener('click', (e) => { const idx = card.getAttribute('data-index'); if(idx!==null) openModal(parseInt(idx)); }));
   document.querySelector('.modal-close').addEventListener('click', () => modal.style.display = 'none');
   window.addEventListener('click', (e) => { if(e.target === modal) modal.style.display = 'none'; });
 
   // TOUR DATES COM RISCO
   const tourDates = [
-    { date: "10/05/2025", event: "IX CapoteFest", location: "Évora" },
-    { date: "22/06/2025", event: "IV NADA Fest", location: "Beja" },
-    { date: "27/09/2025", event: "Fatela Sónica", location: "Fundão (Fatela)" },
-    { date: "13/12/2025", event: "Heavy Duty Fest", location: "Lisboa (RCA Club)" },
-    { date: "13/03/2026", event: "Friday the 13th", location: "Tavira (Rock da Baixamar)" },
-    { date: "22/05/2026", event: "Alvalade Arise '26", location: "Alvalade (Alentejo)" },
-    { date: "11/07/2026", event: "IV Bajonca Rock Fest", location: "S.Pedro do Sul (Viseu)" },
-    { date: "09/2026", event: "TBA", location: "A anunciar" },
-    { date: "10/2026", event: "XII Patrimónios de Peso", location: "Vila Nova de Foz Coa (Guarda)" },
-    { date: "09/01/2027", event: "XXXII HARDMETAL Fest", location: "Mangualde" }
+    { date: "10/05/2025", event: "IX CapoteFest", location: "Évora" }, { date: "22/06/2025", event: "IV NADA Fest", location: "Beja" }, { date: "27/09/2025", event: "Fatela Sónica", location: "Fundão (Fatela)" }, { date: "13/12/2025", event: "Heavy Duty Fest", location: "Lisboa (RCA Club)" }, { date: "13/03/2026", event: "Friday the 13th", location: "Tavira (Rock da Baixamar)" }, { date: "22/05/2026", event: "Alvalade Arise '26", location: "Alvalade (Alentejo)" }, { date: "11/07/2026", event: "IV Bajonca Rock Fest", location: "S.Pedro do Sul (Viseu)" }, { date: "09/2026", event: "TBA", location: "A anunciar" }, { date: "10/2026", event: "XII Patrimónios de Peso", location: "Vila Nova de Foz Coa (Guarda)" }, { date: "09/01/2027", event: "XXXII HARDMETAL Fest", location: "Mangualde" }
   ];
-
   function isPastDate(dateStr) {
     const today = new Date(); today.setHours(0,0,0,0);
     if(dateStr.includes('/') && dateStr.split('/').length===2){ const [m,y]=dateStr.split('/'); return new Date(parseInt(y), parseInt(m)-1, 1) < today; }
@@ -989,37 +969,69 @@
     if(parts.length===3){ const d=new Date(parseInt(parts[2]), parseInt(parts[1])-1, parseInt(parts[0])); return d < today; }
     return false;
   }
-  function buildTourCard(t) {
-    const past = isPastDate(t.date);
-    return `<div class="tour-card fade-up ${past ? 'past' : ''}"><div class="tour-date">${t.date}</div><div class="tour-event">${t.event}</div><div class="tour-location">${t.location}</div></div>`;
-  }
+  function buildTourCard(t) { const past = isPastDate(t.date); return `<div class="tour-card fade-up ${past ? 'past' : ''}"><div class="tour-date">${t.date}</div><div class="tour-event">${t.event}</div><div class="tour-location">${t.location}</div></div>`; }
   document.getElementById('tour-grid').innerHTML = tourDates.map(buildTourCard).join('');
 
-  // CARROSSEL LIVE (12 FOTOS)
+  // CARROSSEL LIVE COM SLIDE
   const totalPhotos = 12;
   const basePath = "media/Danger Machine Live ";
-  const imagePaths = []; for(let i=1;i<=totalPhotos;i++) imagePaths.push(`${basePath}${i}.jpg`);
-  let currentIndex = 0, autoInterval = null;
-  const liveImage = document.getElementById('liveImage');
+  const imagePaths = [];
+  for (let i = 1; i <= totalPhotos; i++) imagePaths.push(`${basePath}${i}.jpg`);
+
+  let currentIndex = 0;
+  let autoInterval = null;
+  const track = document.getElementById('carouselTrack');
   const indicatorsContainer = document.getElementById('indicators');
-  function updateCarousel() { liveImage.src = imagePaths[currentIndex]; document.querySelectorAll('.indicator').forEach((dot,idx)=>dot.classList.toggle('active', idx===currentIndex)); }
-  function goToPhoto(index) { if(index<0) index=totalPhotos-1; if(index>=totalPhotos) index=0; currentIndex=index; updateCarousel(); resetAutoTimer(); }
-  function nextPhoto() { goToPhoto(currentIndex+1); }
-  function prevPhoto() { goToPhoto(currentIndex-1); }
-  function startAutoTimer() { if(autoInterval) clearInterval(autoInterval); autoInterval = setInterval(()=>nextPhoto(), 10000); }
-  function resetAutoTimer() { if(autoInterval) clearInterval(autoInterval); startAutoTimer(); }
-  for(let i=0;i<totalPhotos;i++){ const dot=document.createElement('div'); dot.classList.add('indicator'); if(i===currentIndex) dot.classList.add('active'); dot.addEventListener('click',()=>goToPhoto(i)); indicatorsContainer.appendChild(dot); }
+
+  imagePaths.forEach((src, idx) => {
+    const slide = document.createElement('div');
+    slide.className = 'carousel-slide';
+    const img = document.createElement('img');
+    img.src = src;
+    img.alt = `Danger Machine live ${idx+1}`;
+    slide.appendChild(img);
+    track.appendChild(slide);
+  });
+
+  function updateCarousel(instant = false) {
+    const offset = -currentIndex * 100;
+    track.style.transition = instant ? 'none' : 'transform 0.5s ease-in-out';
+    track.style.transform = `translateX(${offset}%)`;
+    if (instant) track.offsetHeight; // force reflow
+    track.style.transition = 'transform 0.5s ease-in-out';
+    document.querySelectorAll('.indicator').forEach((dot, idx) => dot.classList.toggle('active', idx === currentIndex));
+  }
+
+  function goToPhoto(index, instant = false) {
+    if (index < 0) index = totalPhotos - 1;
+    if (index >= totalPhotos) index = 0;
+    currentIndex = index;
+    updateCarousel(instant);
+    resetAutoTimer();
+  }
+  function nextPhoto() { goToPhoto(currentIndex + 1); }
+  function prevPhoto() { goToPhoto(currentIndex - 1); }
+  function startAutoTimer() { if (autoInterval) clearInterval(autoInterval); autoInterval = setInterval(() => nextPhoto(), 10000); }
+  function resetAutoTimer() { if (autoInterval) clearInterval(autoInterval); startAutoTimer(); }
+
+  for (let i = 0; i < totalPhotos; i++) {
+    const dot = document.createElement('div');
+    dot.classList.add('indicator');
+    if (i === currentIndex) dot.classList.add('active');
+    dot.addEventListener('click', () => goToPhoto(i));
+    indicatorsContainer.appendChild(dot);
+  }
   document.querySelector('.btn-prev').addEventListener('click', prevPhoto);
   document.querySelector('.btn-next').addEventListener('click', nextPhoto);
-  liveImage.src = imagePaths[0];
+  updateCarousel(true);
   startAutoTimer();
 
-  // SCROLL REVEAL
-  const fadeElements = document.querySelectorAll('.fade-up');
-  const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if(entry.isIntersecting) entry.target.classList.add('visible'); }); }, { threshold: 0.15, rootMargin: "0px 0px -40px 0px" });
-  fadeElements.forEach(el => observer.observe(el));
-  window.addEventListener('scroll', () => { const bg = document.querySelector('.hero-bg'); if(bg) bg.style.transform = `scale(1.08) translateY(${window.scrollY * 0.2}px)`; });
-  window.addEventListener('load', () => { document.querySelectorAll('.fade-up').forEach(el => { if(el.getBoundingClientRect().top < window.innerHeight - 80) el.classList.add('visible'); }); });
+  // SCROLL REVEAL E PARALLAX
+  const fades = document.querySelectorAll('.fade-up');
+  const obs = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); }); }, { threshold: 0.15, rootMargin: "0px 0px -40px 0px" });
+  fades.forEach(el => obs.observe(el));
+  window.addEventListener('scroll', () => { const bg = document.querySelector('.hero-bg'); if (bg) bg.style.transform = `scale(1.08) translateY(${window.scrollY * 0.2}px)`; });
+  window.addEventListener('load', () => { document.querySelectorAll('.fade-up').forEach(el => { if (el.getBoundingClientRect().top < window.innerHeight - 80) el.classList.add('visible'); }); });
 </script>
 </body>
 </html>

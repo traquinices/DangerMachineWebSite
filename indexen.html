@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
@@ -7,6 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght@400;600&family=Raleway:wght@300;400;500;700&family=MedievalSharp&display=swap" rel="stylesheet">
   <style>
+    /* Mesmo CSS do index.html (igual) */
     *,
     *::before,
     *::after {
@@ -50,7 +51,6 @@
       border-radius: 6px;
     }
 
-    /* grão animado */
     body::before {
       content: "";
       position: fixed;
@@ -65,7 +65,6 @@
       mix-blend-mode: overlay;
     }
 
-    /* ========= NAVEGAÇÃO ========= */
     nav {
       position: fixed;
       top: 0;
@@ -120,7 +119,6 @@
       font-size: 0.75rem;
     }
 
-    /* ========= HERO ========= */
     #hero {
       position: relative;
       height: 100vh;
@@ -188,7 +186,6 @@
       letter-spacing: 0.3em;
     }
 
-    /* ========= SECTIONS GLOBAIS ========= */
     section {
       min-height: 100vh;
       padding: 100px 64px;
@@ -217,7 +214,6 @@
       margin-bottom: 12px;
     }
 
-    /* ========= BIO ========= */
     #bio {
       background: var(--off-black);
       display: grid;
@@ -272,7 +268,6 @@
       box-shadow: 0 0 12px var(--glow-red);
     }
 
-    /* ========= DISCOGRAFIA ========= */
     #discography {
       background: var(--black);
     }
@@ -339,7 +334,6 @@
       color: var(--red);
     }
 
-    /* ========= MODAL ========= */
     .modal {
       display: none;
       position: fixed;
@@ -466,7 +460,6 @@
       }
     }
 
-    /* ========= CARROSSEL LIVE ========= */
     #live {
       background: var(--off-black);
       text-align: center;
@@ -543,7 +536,6 @@
       background-color: var(--red-dark);
     }
 
-    /* ========= MERCH ========= */
     #merch {
       background: radial-gradient(ellipse at 20% 30%, #0f0f0f, #000000);
       text-align: center;
@@ -581,7 +573,6 @@
       color: transparent;
     }
 
-    /* ========= CONTACT ========= */
     #contact {
       background: var(--off-black);
     }
@@ -670,11 +661,11 @@
   <span class="logo-mini"> DANGER MACHINE </span>
   <div class="nav-links">
     <a href="#bio">BIO</a>
-    <a href="#discography">DISCOGRAFIA</a>
+    <a href="#discography">DISCOGRAPHY</a>
     <a href="#live">LIVE</a>
     <a href="#merch">MERCH</a>
-    <a href="#contact">CONTACTO</a>
-    <a href="indexen.html" class="lang-switch">🇬🇧 EN</a>
+    <a href="#contact">CONTACT</a>
+    <a href="index.html" class="lang-switch">🇵🇹 PT</a>
   </div>
 </nav>
 
@@ -685,32 +676,32 @@
     <img class="hero-logo" src="media/Danger Machine logo.png" alt="Danger Machine Logo" />
   </div>
   <div class="scroll-hint">
-    <span>DESCER</span>
+    <span>SCROLL</span>
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
   </div>
 </section>
 
-<!-- BIO -->
+<!-- BIO (English) -->
 <section id="bio">
   <div class="bio-image-wrap fade-up">
     <img src="media/backgroud image.jpg" alt="Danger Machine live ritual" />
   </div>
   <div class="bio-text fade-up">
-    <p class="section-sub">A HORDA METÁLICA</p>
-    <h2 class="section-title">BIOGRAFIA</h2>
-    <p><strong>Danger Machine</strong> emergiu das profundezas do <strong>Simperio do Filho Renegado</strong> em 2021, forjado nas catacumbas da Sé Catedral de Cúora (Portugal). Com uma sonoridade que funde <strong>Speed Metal, Heavy Metal cru, Black’n’Roll e Punk</strong>, o projeto nasceu para devolver o <strong>“Street Metal”</strong> – metal das ruas, sem filtros nem concessões.</p>
-    <p>Inspirados por titãs como <strong>Venom, Celtic Frost, Tank, Slayer, W.A.S.P., Carnivore</strong> e a era Di’Anno dos Iron Maiden, os Danger Machine criam uma atmosfera obscura que evoca filmes de terror B dos anos 80. Em 2022 lançam a demo <strong>“Metallick Mercenaries”</strong> em K7 Tape, mais tarde relançada em formato digital e CD Digipak, tornando-se um marco do underground luso.</p>
-    <p>Os rituais ao vivo são autênticas <strong>missas satânicas electrificantes</strong>, carregadas de fúria visceral. Em Abril de 2024, registam o EP/vídeo <strong>“Facadas, Sangue & Rock’n’Roll”</strong>, capturando a brutalidade da sua performance. O single <strong>“The Witchburner (Early Version)”</strong> (2025) antecipa o som mais contemporâneo do aguardado álbum de estreia, mantendo a essência primitiva da demo.</p>
-    <p><strong>Formação actual:</strong> Danger Machine (Voz/Baixo), Phantom Lord (Guitarra Solo), Oni Kurogo (Guitarra Ritmo) e “Rex” Rhino (Bateria). Unidos pelo aço, pelo sangue e pelo metal sem redenção.</p>
+    <p class="section-sub">THE METAL HORDE</p>
+    <h2 class="section-title">BIOGRAPHY</h2>
+    <p><strong>Danger Machine</strong> emerged from the depths of the <strong>Simperio do Filho Renegado</strong> in 2021, forged in the catacombs of Sé Catedral de Cúora (Portugal). With a sound that blends <strong>Speed Metal, raw Heavy Metal, Black’n’Roll and Punk</strong>, the project was born to bring back <strong>“Street Metal”</strong> – metal from the streets, with no filters or concessions.</p>
+    <p>Influenced by titans like <strong>Venom, Celtic Frost, Tank, Slayer, W.A.S.P., Carnivore</strong> and the Di’Anno era of Iron Maiden, Danger Machine create a dark atmosphere evoking 80s B‑horror movies. In 2022 they released the demo <strong>“Metallick Mercenaries”</strong> on K7 Tape, later reissued digitally and as a CD Digipak, becoming a milestone of the Portuguese underground.</p>
+    <p>Live rituals are authentic <strong>electrifying satanic masses</strong>, filled with visceral fury. In April 2024, they recorded the EP/video <strong>“Facadas, Sangue & Rock’n’Roll”</strong>, capturing the brutality of their performance. The single <strong>“The Witchburner (Early Version)”</strong> (2025) previews the more contemporary sound of the upcoming debut album, while keeping the primitive essence of the demo.</p>
+    <p><strong>Current lineup:</strong> Danger Machine (Vocals/Bass), Phantom Lord (Lead Guitar), Oni Kurogo (Rhythm Guitar) and “Rex” Rhino (Drums). United by steel, blood and unforgiving metal.</p>
     <a href="https://www.metal-archives.com/bands/Danger_Machine/3540517040" target="_blank" class="btn-metal">Metal Archives →</a>
   </div>
 </section>
 
-<!-- DISCOGRAFIA lado a lado -->
+<!-- DISCOGRAFIA lado a lado (INGLÊS) -->
 <section id="discography">
   <div class="container">
-    <p class="section-sub fade-up">LANÇAMENTOS OFICIAIS</p>
-    <h2 class="section-title fade-up">DISCOGRAFIA</h2>
+    <p class="section-sub fade-up">OFFICIAL RELEASES</p>
+    <h2 class="section-title fade-up">DISCOGRAPHY</h2>
     <div class="disc-row" id="disc-row"></div>
   </div>
 </section>
@@ -720,7 +711,7 @@
   <div class="modal-content">
     <span class="modal-close">&times;</span>
     <div class="modal-left">
-      <img id="modalImage" alt="capa">
+      <img id="modalImage" alt="cover">
     </div>
     <div class="modal-right">
       <h2 id="modalTitle"></h2>
@@ -733,13 +724,13 @@
 
 <!-- CARROSSEL LIVE -->
 <section id="live">
-  <p class="section-sub fade-up">RITUAIS AO VIVO</p>
+  <p class="section-sub fade-up">LIVE RITUALS</p>
   <h2 class="section-title fade-up">LIVE PHOTOS</h2>
   <div class="live-carousel fade-up">
     <div class="carousel-container">
-      <button class="carousel-btn btn-prev" aria-label="Anterior">❮</button>
+      <button class="carousel-btn btn-prev" aria-label="Previous">❮</button>
       <img class="carousel-image" id="liveImage" alt="Danger Machine live" />
-      <button class="carousel-btn btn-next" aria-label="Seguinte">❯</button>
+      <button class="carousel-btn btn-next" aria-label="Next">❯</button>
     </div>
     <div class="carousel-indicators" id="indicators"></div>
   </div>
@@ -747,26 +738,26 @@
 
 <!-- MERCH -->
 <section id="merch">
-  <p class="section-sub fade-up">LOJA OFICIAL</p>
+  <p class="section-sub fade-up">OFFICIAL STORE</p>
   <h2 class="section-title fade-up">MERCHANDISE</h2>
   <div class="merch-coming fade-up">
     <div class="merch-badge">⚔️🩸</div>
-    <p class="merch-soon">EM BREVE</p>
-    <p class="merch-desc">T-shirts, patches, pins e mais. O arsenal de Danger Machine está a ser temperado no fogo. Regressa em breve.</p>
+    <p class="merch-soon">COMING SOON</p>
+    <p class="merch-desc">T‑shirts, patches, pins and more. Danger Machine's arsenal is being forged in fire. Be back soon.</p>
   </div>
 </section>
 
 <!-- CONTACTOS -->
 <section id="contact">
   <div class="container">
-    <p class="section-sub fade-up">REDES & CONTACTO</p>
-    <h2 class="section-title fade-up">SANGUE E METAL</h2>
+    <p class="section-sub fade-up">CONTACT & SOCIALS</p>
+    <h2 class="section-title fade-up">BLOOD AND METAL</h2>
     <div class="contact-grid">
       <div class="contact-block fade-up">
-        <h3>CONTACTO DIRECTO</h3>
-        <p>Booking, imprensa, colaborações e rituais ao vivo:<br>
+        <h3>DIRECT CONTACT</h3>
+        <p>Booking, press, collaborations and live rituals:<br>
         <strong><a href="mailto:contactdangermachine@gmail.com">contactdangermachine@gmail.com</a></strong><br><br>
-        Danger Machine está disponível para levar o metal das ruas a todo o território nacional e internacional. Que o diabo nos guie.</p>
+        Danger Machine is ready to bring street metal to Portugal and beyond. May the devil guide us.</p>
       </div>
       <div class="contact-block fade-up">
         <h3>BEWARE...</h3>
@@ -798,19 +789,19 @@
 </section>
 
 <footer>
-  <p>© 2025 Danger Machine — Todos os direitos malditos reservados</p>
-  <p style="color:#2a2a2a;">⚔ forjado nas trevas e no aço ⚔</p>
+  <p>© 2025 Danger Machine — All cursed rights reserved</p>
+  <p style="color:#2a2a2a;">⚔ forged in darkness and steel ⚔</p>
 </footer>
 
 <script>
-  // ---------- DADOS DISCOGRAFIA (PORTUGUÊS) ----------
+  // ENGLISH DISCOGRAPHY DATA
   const discos = [
     {
       title: "Metallick Mercenaries",
       year: "2022 (K7) / 2024 CD",
       type: "DEMO",
       img: "media/metallick mercenaries.jpg",
-      releaseDate: "Lançado a 15 de Setembro, 2023",
+      releaseDate: "Released September 15th, 2023",
       tracks: [
         { name: "Beware of the Night (Evil Vows)", duration: "04:03" },
         { name: "Medusa's Eyes", duration: "04:17" },
@@ -824,7 +815,7 @@
       year: "2024",
       type: "LIVE/STUDIO EP",
       img: "media/facadas, sangue, rocknroll.jpg",
-      releaseDate: "Lançado a 31 de Outubro, 2024",
+      releaseDate: "Released October 31st, 2024",
       tracks: [
         { name: "Wake Up in Leather", duration: "04:07" },
         { name: "Beware of the Night", duration: "04:27" },
@@ -836,7 +827,7 @@
       year: "2025",
       type: "SINGLE",
       img: "media/witchburner.png",
-      releaseDate: "Lançado a 11 de Abril, 2025",
+      releaseDate: "Released April 11th, 2025",
       tracks: [
         { name: "The Witchburner", duration: "04:41" }
       ]
@@ -860,7 +851,6 @@
 
   document.getElementById('disc-row').innerHTML = discos.map(buildDiscCard).join('');
 
-  // MODAL
   const modal = document.getElementById('modal');
   const modalImg = document.getElementById('modalImage');
   const modalTitle = document.getElementById('modalTitle');
@@ -897,7 +887,7 @@
     if (e.target === modal) modal.style.display = 'none';
   });
 
-  // ---------- CARROSSEL LIVE (12 fotos) ----------
+  // CARROSSEL LIVE
   const totalPhotos = 12;
   const basePath = "media/Danger Machine Live ";
   const imagePaths = [];
@@ -949,7 +939,6 @@
   liveImage.src = imagePaths[0];
   startAutoTimer();
 
-  // SCROLL REVEAL e paralaxe
   const fadeElements = document.querySelectorAll('.fade-up');
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {

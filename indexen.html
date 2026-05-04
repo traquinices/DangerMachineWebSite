@@ -268,6 +268,59 @@
       box-shadow: 0 0 12px var(--glow-red);
     }
 
+    /* LINEUP SECTION */
+#lineup {
+  background: var(--black);
+}
+.lineup-image-wrap {
+  margin: 2rem auto 3rem auto;
+  max-width: 900px;
+  border: 2px solid var(--red-dark);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.lineup-image-wrap:hover {
+  transform: scale(1.01);
+  box-shadow: 0 0 20px rgba(204,0,0,0.3);
+}
+.lineup-image-wrap img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.members-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+.member-card {
+  background: rgba(20,20,30,0.7);
+  backdrop-filter: blur(4px);
+  border-left: 3px solid var(--red);
+  padding: 1rem 1.8rem;
+  min-width: 180px;
+  text-align: left;
+  transition: all 0.2s;
+}
+.member-card:hover {
+  transform: translateY(-5px);
+  background: rgba(30,0,0,0.8);
+}
+.member-card h3 {
+  font-family: 'MedievalSharp', cursive;
+  font-size: 1.2rem;
+  color: var(--red-bright);
+  margin-bottom: 0.3rem;
+}
+.member-card p {
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  color: #ccc;
+}
     #discography {
       background: var(--black);
     }
@@ -750,6 +803,35 @@
     <p>In 2025 the project played iconic festivals of the Portuguese Metal and Punk scene such as <strong>NADA Music Fest (Beja)</strong>, <strong>Heavy Duty Fest (Lisbon)</strong> and <strong>Fatela Sónica (Fundão)</strong>, where they shared the bill with names like <strong>Pentagram (USA), Sortilège (FR), Savage Grace (USA) and Suicidal Angels (GR)</strong>. In 2026/2027 the schedule promises appearances at others such as <strong>Alvalade Arise (Alvalade - Alentejo)</strong> and <strong>HARDMETAL Fest (Mangualde)</strong>.</p>
     <p><strong>Do you have the courage to take the STAB?</strong></p>
     <a href="https://www.metal-archives.com/bands/Danger_Machine/3540517040" target="_blank" class="btn-metal">Metal Archives →</a>
+  </div>
+</section>
+
+<!-- CURRENT LINEUP -->
+<section id="lineup">
+  <div class="container">
+    <p class="section-sub fade-up">THE STEEL HORDE</p>
+    <h2 class="section-title fade-up">CURRENT LINEUP</h2>
+    <div class="lineup-image-wrap fade-up">
+      <img src="media/Danger Machine (2025 - Present Line-Up).jpg" alt="Danger Machine Lineup 2025" />
+    </div>
+    <div class="members-grid fade-up">
+      <div class="member-card">
+        <h3>Danger Machine</h3>
+        <p>Demolisher Bass & Unholy Sermons</p>
+      </div>
+      <div class="member-card">
+        <h3>Phantom Lord</h3>
+        <p>Mayhemic Guitar</p>
+      </div>
+      <div class="member-card">
+        <h3>Oni Kurogo</h3>
+        <p>Steelcutting Guitar</p>
+      </div>
+      <div class="member-card">
+        <h3>War "Rex" Rhino</h3>
+        <p>MG 42 Drums</p>
+      </div>
+    </div>
   </div>
 </section>
 

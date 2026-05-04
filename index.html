@@ -50,7 +50,6 @@
       border-radius: 6px;
     }
 
-    /* grão animado */
     body::before {
       content: "";
       position: fixed;
@@ -65,7 +64,6 @@
       mix-blend-mode: overlay;
     }
 
-    /* ========= NAVEGAÇÃO ========= */
     nav {
       position: fixed;
       top: 0;
@@ -120,7 +118,6 @@
       font-size: 0.75rem;
     }
 
-    /* ========= HERO ========= */
     #hero {
       position: relative;
       height: 100vh;
@@ -188,7 +185,6 @@
       letter-spacing: 0.3em;
     }
 
-    /* ========= SECTIONS GLOBAIS ========= */
     section {
       min-height: 100vh;
       padding: 100px 64px;
@@ -217,7 +213,7 @@
       margin-bottom: 12px;
     }
 
-    /* ========= BIO ========= */
+    /* BIO */
     #bio {
       background: var(--off-black);
       display: grid;
@@ -272,7 +268,7 @@
       box-shadow: 0 0 12px var(--glow-red);
     }
 
-    /* ========= DISCOGRAFIA ========= */
+    /* DISCOGRAFIA */
     #discography {
       background: var(--black);
     }
@@ -339,7 +335,58 @@
       color: var(--red);
     }
 
-    /* ========= MODAL ========= */
+    /* TOUR DATES */
+    #tour {
+      background: var(--off-black);
+    }
+    .tour-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.8rem;
+      margin-top: 3rem;
+    }
+    .tour-card {
+      background: rgba(10,10,10,0.7);
+      border-left: 4px solid var(--red);
+      padding: 1.2rem 1.5rem;
+      transition: all 0.3s;
+      backdrop-filter: blur(2px);
+    }
+    .tour-card:hover {
+      transform: translateX(8px);
+      border-left-width: 6px;
+      background: rgba(20,0,0,0.6);
+    }
+    .tour-date {
+      font-family: 'MedievalSharp', cursive;
+      font-size: 1.3rem;
+      font-weight: bold;
+      color: var(--red-bright);
+      display: inline-block;
+      margin-bottom: 0.4rem;
+      letter-spacing: 0.05em;
+    }
+    .tour-event {
+      font-family: 'Cinzel', serif;
+      font-size: 1rem;
+      color: #f0f0f0;
+      margin: 0.2rem 0;
+    }
+    .tour-location {
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.85rem;
+      color: var(--text-dim);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 6px;
+    }
+    .tour-location::before {
+      content: "📍";
+      font-size: 0.8rem;
+    }
+
+    /* MODAL (mesmo) */
     .modal {
       display: none;
       position: fixed;
@@ -466,9 +513,9 @@
       }
     }
 
-    /* ========= CARROSSEL LIVE ========= */
+    /* CARROSSEL LIVE */
     #live {
-      background: var(--off-black);
+      background: var(--black);
       text-align: center;
     }
     .live-carousel {
@@ -543,7 +590,7 @@
       background-color: var(--red-dark);
     }
 
-    /* ========= MERCH ========= */
+    /* MERCH */
     #merch {
       background: radial-gradient(ellipse at 20% 30%, #0f0f0f, #000000);
       text-align: center;
@@ -581,7 +628,7 @@
       color: transparent;
     }
 
-    /* ========= CONTACT ========= */
+    /* CONTACT */
     #contact {
       background: var(--off-black);
     }
@@ -643,6 +690,7 @@
       nav { padding: 1rem 1.5rem; }
       .nav-links { gap: 1rem; }
       .carousel-btn { font-size: 1.5rem; padding: 0.3rem 0.7rem; }
+      .tour-grid { grid-template-columns: 1fr; }
     }
     @media (max-width: 580px) {
       .disc-row { gap: 1rem; }
@@ -651,6 +699,7 @@
       .lang-switch { margin-left: 0; }
       .logo-mini { font-size: 0.9rem; }
       .carousel-btn { font-size: 1.2rem; padding: 0.2rem 0.5rem; }
+      .tour-date { font-size: 1rem; }
     }
 
     .fade-up {
@@ -671,6 +720,7 @@
   <div class="nav-links">
     <a href="#bio">BIO</a>
     <a href="#discography">DISCOGRAFIA</a>
+    <a href="#tour">TOUR</a>
     <a href="#live">LIVE</a>
     <a href="#merch">MERCH</a>
     <a href="#contact">CONTACTO</a>
@@ -690,7 +740,7 @@
   </div>
 </section>
 
-<!-- BIO -->
+<!-- BIO (nova versão) -->
 <section id="bio">
   <div class="bio-image-wrap fade-up">
     <img src="media/backgroud image.jpg" alt="Danger Machine live ritual" />
@@ -698,15 +748,17 @@
   <div class="bio-text fade-up">
     <p class="section-sub">A HORDA METÁLICA</p>
     <h2 class="section-title">BIOGRAFIA</h2>
-    <p><strong>Danger Machine</strong> emergiu das profundezas do <strong>Simperio do Filho Renegado</strong> em 2021, forjado nas catacumbas da Sé Catedral de Cúora (Portugal). Com uma sonoridade que funde <strong>Speed Metal, Heavy Metal cru, Black’n’Roll e Punk</strong>, o projeto nasceu para devolver o <strong>“Street Metal”</strong> – metal das ruas, sem filtros nem concessões.</p>
-    <p>Inspirados por titãs como <strong>Venom, Celtic Frost, Tank, Slayer, W.A.S.P., Carnivore</strong> e a era Di’Anno dos Iron Maiden, os Danger Machine criam uma atmosfera obscura que evoca filmes de terror B dos anos 80. Em 2022 lançam a demo <strong>“Metallick Mercenaries”</strong> em K7 Tape, mais tarde relançada em formato digital e CD Digipak, tornando-se um marco do underground luso.</p>
-    <p>Os rituais ao vivo são autênticas <strong>missas satânicas electrificantes</strong>, carregadas de fúria visceral. Em Abril de 2024, registam o EP/vídeo <strong>“Facadas, Sangue & Rock’n’Roll”</strong>, capturando a brutalidade da sua performance. O single <strong>“The Witchburner (Early Version)”</strong> (2025) antecipa o som mais contemporâneo do aguardado álbum de estreia, mantendo a essência primitiva da demo.</p>
-    <p><strong>Formação actual:</strong> Danger Machine (Voz/Baixo), Phantom Lord (Guitarra Solo), Oni Kurogo (Guitarra Ritmo) e “Rex” Rhino (Bateria). Unidos pelo aço, pelo sangue e pelo metal sem redenção.</p>
+    <p>Das profundezas da <strong>Sé Catedral de Évora</strong> emergiu um projeto no ano de nosso senhor <strong>2021, Danger Machine...</strong> o retorno do <strong>Metal das ruas</strong>!</p>
+    <p>Formado pelo Vocalista/Baixista de mesmo nome e pelo baterista <strong>War“Rex” Rhino</strong>, foi num quarto de universidade com cheiro a <strong>TABACO RASCA e VINHO DE PACOTE</strong> que a primeira demo tape do projecto foi forjada, a <strong>“Metallick Mercenaries”</strong> originalmente editada independentemente em K7 no ano de 2022 (com outro nome) e posteriormente editada pela <strong>Maledict Records</strong> em CD no ano de 2024.</p>
+    <p>A proposta dessa demo foi ir na contra-mão dos padrões de produção do metal atual em Portugal, rejeitando as concepções comerciais e criando uma sonoridade que passeando pelo <strong>Black’n’Roll, Heavy Metal Tradicional, Speed Metal e Thrash Metal</strong> ofende os ouvidos menos preparados, divide opiniões, mas não deixa nenhuma alma indiferente… o equivalente musical a <strong>SOPAS DE CAVALO CANSADO</strong>.</p>
+    <p>Apesar de inicialmente ter sido concebido como um projeto de estúdio, tendo recusado apresentações ao vivo nos primeiros anos de existência, em 2023 o <strong>Conde de Lucefecit</strong> e a sua capitania infernal decidiram descarregar doses cavalares de testosterona em palco. Em 2024 gravaram e editaram novamente pela <strong>Maledict Records</strong> o EP ao vivo <strong>“Facadas, Sangue & Rock'n'Roll”</strong> que continuou a demonstração de força <strong>BRUTA e IGNORÂNCIA</strong> desta vez nos palcos com decibéis a darem uma dimensão a mais às malhas.</p>
+    <p>Em 2025 o projecto apresentou-se em festivais icónicos da cena Metal e Punk em Portugal como o <strong>NADA Music Fest (Beja)</strong>, o <strong>Heavy Duty Fest (Lisboa)</strong> e o <strong>Fatela Sónica (Fundão)</strong> onde fechou para nomes como <strong>Pentagram (USA), Sortilège (FR), Savage Grace (USA) e Suicidal Angels (GR)</strong> e em 2026/2027 a agenda promete participações em outros tantos como o <strong>Alvalade Arise (Alvalade - Alentejo)</strong> e o <strong>HARDMETAL Fest (Mangualde)</strong>.</p>
+    <p><strong>Têm coragem de aceitar a FACADA?</strong></p>
     <a href="https://www.metal-archives.com/bands/Danger_Machine/3540517040" target="_blank" class="btn-metal">Metal Archives →</a>
   </div>
 </section>
 
-<!-- DISCOGRAFIA lado a lado -->
+<!-- DISCOGRAFIA -->
 <section id="discography">
   <div class="container">
     <p class="section-sub fade-up">LANÇAMENTOS OFICIAIS</p>
@@ -730,6 +782,15 @@
     </div>
   </div>
 </div>
+
+<!-- TOUR DATES -->
+<section id="tour">
+  <div class="container">
+    <p class="section-sub fade-up">PRÓXIMOS RITUAIS</p>
+    <h2 class="section-title fade-up">TOUR DATES</h2>
+    <div class="tour-grid" id="tour-grid"></div>
+  </div>
+</section>
 
 <!-- CARROSSEL LIVE -->
 <section id="live">
@@ -803,7 +864,7 @@
 </footer>
 
 <script>
-  // ---------- DADOS DISCOGRAFIA (PORTUGUÊS) ----------
+  // Dados discografia (PT)
   const discos = [
     {
       title: "Metallick Mercenaries",
@@ -860,7 +921,7 @@
 
   document.getElementById('disc-row').innerHTML = discos.map(buildDiscCard).join('');
 
-  // MODAL
+  // Modal
   const modal = document.getElementById('modal');
   const modalImg = document.getElementById('modalImage');
   const modalTitle = document.getElementById('modalTitle');
@@ -897,7 +958,32 @@
     if (e.target === modal) modal.style.display = 'none';
   });
 
-  // ---------- CARROSSEL LIVE (12 fotos) ----------
+  // TOUR DATES (extraídas da imagem)
+  const tourDates = [
+    { date: "10/05/2025", event: "IX CapoteFest", location: "Évora" },
+    { date: "22/06/2025", event: "IV NADA Fest", location: "Beja" },
+    { date: "27/09/2025", event: "Fatela Sónica", location: "Fundão (Fatela)" },
+    { date: "13/12/2025", event: "Heavy Duty Fest", location: "Lisboa (RCA Club)" },
+    { date: "13/03/2026", event: "Friday the 13th", location: "Tavira (Rock da Baixamar)" },
+    { date: "22/05/2026", event: "Alvalade Arise '26", location: "Alvalade (Alentejo)" },
+    { date: "11/07/2026", event: "IV Bajonca Rock Fest", location: "S.Pedro do Sul (Viseu)" },
+    { date: "09/2026", event: "TBA", location: "A anunciar" },
+    { date: "10/2026", event: "XII Patrimónios de Peso", location: "Vila Nova de Foz Coa (Guarda)" },
+    { date: "09/01/2027", event: "XXXII HARDMETAL Fest", location: "Mangualde" }
+  ];
+
+  function buildTourCard(t) {
+    return `
+      <div class="tour-card fade-up">
+        <div class="tour-date">${t.date}</div>
+        <div class="tour-event">${t.event}</div>
+        <div class="tour-location">${t.location}</div>
+      </div>
+    `;
+  }
+  document.getElementById('tour-grid').innerHTML = tourDates.map(buildTourCard).join('');
+
+  // Carrossel live (12 fotos)
   const totalPhotos = 12;
   const basePath = "media/Danger Machine Live ";
   const imagePaths = [];
@@ -949,7 +1035,7 @@
   liveImage.src = imagePaths[0];
   startAutoTimer();
 
-  // SCROLL REVEAL e paralaxe
+  // Scroll reveal + parallax
   const fadeElements = document.querySelectorAll('.fade-up');
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
